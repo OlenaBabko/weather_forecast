@@ -21,11 +21,12 @@ dayTimeElement.innerHTML = `${nowDay} ${nowHour}:${nowMinute}`;
 
 // Search City + Weather after the user submits the form.
 function showWeather(response) { 
-    // console.log(response.data.name);
     document.querySelector("#city").innerHTML = response.data.name;
     document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
     document.querySelector("#humidity").innerHTML = response.data.main.humidity;
     document.querySelector("#wind").innerHTML = response.data.wind.speed;
+    document.querySelector("#description").innerHTML = response.data.weather[0].description;
+    document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 function searchCity(city) {
@@ -64,9 +65,6 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 
 
-// function showPosition(position) {
-//     let h1 = document.querySelector("h1");
-//     h1.innerHTML = `At your current location`;
 
 // temperature in Celsius and Fahrenheit
 function convertToFahrenheit(event) {
