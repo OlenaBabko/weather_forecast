@@ -17,10 +17,10 @@ dayTimeElement.innerHTML = `${nowDay} ${nowHour}:${nowMinute}`;
 
 
 
-
-
 // Search City + Weather after the user submits the form.
 function showWeather(response) { 
+    temperatureCelsius = response.data.main.temp
+
     document.querySelector("#city").innerHTML = response.data.name;
     document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
     document.querySelector("#humidity").innerHTML = response.data.main.humidity;
@@ -70,19 +70,25 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 function convertToFahrenheit(event) {
     event.preventDefault();
     let temperatureElement = document.querySelector("#temperature");
-    let temperature = temperatureElement.innerHTML;
-    temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+
+    let temperatureFarhrenheit = (temperatureCelsius * 9) / 5 + 32;
+    temperatureElement.innerHTML = Math.round(temperatureFarhrenheit);
 }
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
+let temperatureCelsius = null;
+
 function convertToCelsius(event) {
     event.preventDefault();
+    celsiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
+
     let temperatureElement = document.querySelector("#temperature");
-    let temperature = temperatureElement.innerHTML;
-    temperatureElement.innerHTML = Math.round((temperature - 32) * 5/9);
+    temperatureElement.innerHTML = Math.round(temperatureCelsius);
 }
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
-
-// searchCity("Kyiv");
