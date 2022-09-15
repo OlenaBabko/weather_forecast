@@ -62,7 +62,7 @@ h3 {
 }
 
 .searchCity {
-  margin-top: 124px;
+  margin-top: 112px;
 }
 
 button {
@@ -72,22 +72,19 @@ button {
   font-size: 16px;
   padding: 5px 12px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   transition: all 200ms ease-in-out;
 }
 button:hover {
   opacity: 0.9;
   cursor: pointer;
 }
-.searchButton {
-  margin: 0px 0px;
+.rowButtons {
+  margin: 5px 0px;
 }
 .currentLocationButton {
-  margin: -40px 125px;
-  padding: 5px 0px;
-}
-.rowButton {
-  margin-top: 10px;
+  margin: -38px 125px;
+  padding: 7px 12px;
 }
 
 
