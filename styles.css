@@ -89,6 +89,21 @@ button:hover {
 
 
 
+.forecast {
+  margin-left: 00px;
+  text-align: center;
+}
+.forecast_date {
+  font-size: 16px;
+  opacity: 0.5;
+}
+.forecast_temperature {
+  font-size: 12px;
+}
+
+
+
+
 .weather-border{
   border: 1px solid #b8b8b8;
   border-radius: 10px;
